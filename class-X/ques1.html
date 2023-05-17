@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armstrong Number</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="../class-X/style.css">
+    <link rel="shortcut icon" href="../images/Favicon.ico.jpg" type="image/x-icon" />
+</head>
+<body>
+    <nav>
+        <div class="logo">
+           Codely
+        </div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+        <i class="fas fa-bars"></i>
+        </label>
+        <ul>
+            
+           <li><a href="../index.html">Home</a></li>
+           <li><a href="../class-IX.html">Class IX</a></li>
+           <li><a class="active" href="../class-X.html">Class X</a></li>
+           <li><a href="../class-XI.html">Class XI</a></li>
+           <li><a href="../about-us.html">About Us</a></li>
+        </ul>
+     </nav>
+
+     <div class="ques-section">
+       <p1> Question 1 :</p1>
+       <p>Write a class to check whether a given number is Armstrong or not using a function 
+        name int checkArmstrong(int num).
+         Function should return a value 1 if number is Armstrong otherwise return 0 . </p>
+     </div>
+     <div class="explanation">
+        <p>Explanation :</p>
+        <p>An armstrong number is a number whose sum of the cubes of its digits is equal to the 
+            number itself . <br>
+            for example , 371 ----> 3*3*3 + 7*7*7 + 1*1*1 = 371 <br>
+            hence , 371 is an armstrong number .
+        </p>
+     </div>
+     <div class="answer-section">
+        <div class="codeblock">
+           <pre>
+<code>
+import java.util.* ;
+public class armstrong 
+{
+        
+    public void check(int num)
+    {
+        int digit = 0 ;
+        int sum = 0 ;
+        int temp = num ;
+        int temp2 = num ;
+        int count  = 0 ;
+
+        while(temp>0)
+        {
+            digit = temp%10 ;
+            temp = temp/10 ;
+            count++ ;
+    
+        } 
+    
+        for(int i = 1 ;i<=count;i++)
+        {
+           digit = temp2%10 ; 
+           temp2 = temp2/10 ;
+           sum = (int) (sum + 
+           Math.pow(digit,count));
+        }
+             
+           
+        if(sum == num)
+        System.out.println(num+" is a Armstrong number .") ;
+    
+        else
+        System.out.println(num+" is not a Armstrong number .") ; 
+    }
+                  
+    public static void main(String[] args)
+    {
+           Scanner sc = new Scanner(System.in) ;  
+           System.out.println("Enter a number") ;     
+           int num = sc.nextInt() ;
+               
+           armstrong run = new armstrong() ;
+           run.check(num);
+    }
+}         
+</code>
+           </pre>
+        </div>
+    </div>
+    <div class="output">
+        <pre>
+            <code>
+Codely Prompt ----->java armstrong.java
+Enter a number
+371
+371 is a Armstrong number
+            </code>
+        </pre>
+                   </div>
+
+       <div class="credits">
+        <h2>Contribution by :-</h2>
+        <div class="name-img">
+            <img src="../images/samar.jpeg" alt="Samar Image">
+            <p><a href="https://twitter.com/SamarKhan_weeb"> Samar Khan</a></p>
+        </div>
+       </div>
+
+       <footer>
+        <p> <pre> Codely   ||   Second  Release  ||    2023 </pre></p>
+       </footer>
+</body>
+</html>

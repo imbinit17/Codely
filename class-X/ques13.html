@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word start with A or a</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="../class-X/style.css">
+    <link rel="shortcut icon" href="../images/Favicon.ico.jpg" type="image/x-icon" />
+</head>
+<body>
+    <nav>
+        <div class="logo">
+           Codely
+        </div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+        <i class="fas fa-bars"></i>
+        </label>
+        <ul>
+            
+           <li><a href="../index.html">Home</a></li>
+           <li><a href="../class-IX.html">Class IX</a></li>
+           <li><a class="active" href="../class-X.html">Class X</a></li>
+           <li><a href="../class-XI.html">Class XI</a></li>
+           <li><a href="../about-us.html">About Us</a></li>
+        </ul>
+     </nav>
+
+     <div class="ques-section">
+       <p1> Question 13 :</p1>
+       <p>Define a class to declare an array to accept and store ten words .
+        <br>     Display only those words which start with 'A' or 'a' . </p>
+     </div>
+          <div class="answer-section">
+        <div class="codeblock">
+           <pre>
+<code>
+import java.util.*;
+class wordCheck
+{
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in) ;
+        String arr[] = new String[10] ;
+        System.out.println("Enter 10 words") ;
+        
+        for(int i=0;i< arr.length;i++)
+        arr[i] = sc.next() ;
+
+        System.out.println("The words are : ") ;
+        for(int j=0;j< arr.length;j++)
+        {
+            if(doesSatisfy(arr[j])==true)
+            System.out.println(arr[j]) ;
+        }
+    }
+
+    public static boolean doesSatisfy(String word)
+    {
+        boolean flag = false ;
+        char ch = word.charAt(0) ;
+        if(ch=='A' || ch=='a')
+        flag = true ;
+        
+        return flag ;
+    }
+}         
+</code>
+           </pre>
+        </div>
+    </div>
+    <div class="output">
+        <pre>
+            <code>
+Codely Prompt ----->java wordCheck.java
+Enter 10 words
+Lorem
+ipsum
+sit
+dolor
+amet
+consectetur
+adipisicing
+elit
+aliquid
+tempore
+The words are :
+amet
+adipisicing
+aliquid
+            </code>
+        </pre>
+                   </div>
+
+       <div class="credits">
+        <h2>Contribution by :-</h2>
+        <div class="name-img">
+            <img src="../images/samar.jpeg" alt="Samar Image">
+            <p><a href="https://twitter.com/SamarKhan_weeb"> Samar Khan</a></p>
+        </div>
+       </div>
+
+       <footer>
+        <p> <pre> Codely   ||   Second  Release  ||    2023 </pre></p>
+       </footer>
+</body>
+</html>

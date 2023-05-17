@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Number</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="../class-X/style.css">
+    <link rel="shortcut icon" href="../images/Favicon.ico.jpg" type="image/x-icon" />
+</head>
+<body>
+    <nav>
+        <div class="logo">
+           Codely
+        </div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+        <i class="fas fa-bars"></i>
+        </label>
+        <ul>
+           <li><a href="../index.html">Home</a></li>
+           <li><a href="../class-IX.html">Class IX</a></li>
+           <li><a class="active" href="../class-X.html">Class X</a></li>
+           <li><a href="../class-XI.html">Class XI</a></li>
+           <li><a href="../about-us.html">About Us</a></li>
+        </ul>
+     </nav>
+
+     <div class="ques-section">
+       <p1> Question 4:</p1>
+       <p>Design a class decimalToBinary to accept a non-zero number in decimal format and convert it to binary.
+<br>
+        Use of Strings and Arrays is prohibited. </p>
+     </div>
+     <div class="answer-section">
+        <div class="codeblock">
+           <pre>
+<code>
+import java.util.Scanner ; 
+public class decimalToBinary
+{ 
+    private int decimal ; 
+    void read() 
+    {
+        Scanner sc = new Scanner(System.in) ;
+        System.out.println("Enter the number to be converted to Binary") ;
+        decimal = sc.nextInt() ;
+    }
+    
+    void perform()
+    {
+        int zeroCount = 0 ;
+        int binary = 0 ;
+        boolean flag = false ;
+        while(decimal>0)
+        {
+            if(decimal%2==1)
+            {
+                binary += 1 ;
+                binary*= 10 ;
+                flag = true ;
+                decimal = decimal/2 ;
+            }
+            else if(decimal%2==0 && binary!=0)
+            {
+                binary*= 10 ;
+                flag =  false ;
+                decimal = decimal/2 ;
+            }
+            
+            else if(decimal%2==0 && binary==0)
+            {
+                decimal = decimal/2 ;
+                zeroCount++ ;
+            }
+        }
+        if(flag==true)
+        binary/=10 ;
+        
+        System.out.print("Binary : ") ;
+        while(binary!=0)
+        {
+            System.out.print(binary%10) ;
+            binary /= 10 ;
+        }
+        for(int i=1;i<=zeroCount;i++)
+        System.out.print("0") ;
+    }
+    
+    public static void main(String args[])
+    {
+        decimalToBinary run = new decimalToBinary() ;
+        run.read() ;
+        run.perform() ;
+    }
+}         
+</code>
+           </pre>
+        </div>
+    </div>
+    <div class="output">
+        <pre>
+            <code>
+Codely Prompt ----->java decimalToBinary.java
+Enter a number to be converted to Binary
+157
+Binary : 10011101
+            </code>
+        </pre>
+                   </div>
+
+       <div class="credits">
+        <h2>Contribution by :-</h2>
+        <div class="name-img">
+            <img src="../images/binit.jpg" alt="Binit Image">
+            <p><a href="https://twitter.com/imbinit17">Binit Ranjan Das</a></p>
+        </div>
+       </div>
+
+       <footer>
+        <p> <pre> Codely   ||   Second  Release  ||    2023 </pre></p>
+       </footer>
+</body>
+</html>

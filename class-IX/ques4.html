@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digit Sum</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="../class-IX/style.css">
+    <link rel="shortcut icon" href="../images/Favicon.ico.jpg" type="image/x-icon" />
+</head>
+<body>
+    <nav>
+        <div class="logo">
+           Codely
+        </div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+        <i class="fas fa-bars"></i>
+        </label>
+        <ul>
+           <li><a href="../index.html">Home</a></li>
+           <li><a class="active" href="../class-IX.html">Class IX</a></li>
+           <li><a href="../class-X.html">Class X</a></li>
+           <li><a href="../class-XI.html">Class XI</a></li>
+           <li><a href="../about-us.html">About Us</a></li>
+        </ul>
+     </nav>
+
+     <div class="ques-section">
+       <p1> Question 4 :</p1>
+       <p>Write a program to calculate sum of the digits entered by the user .</p>
+     </div>
+     <div class="explanation">
+        <p>Explanation :</p>
+        <p>Given a number : 569<br>
+            Sum of Digits = 5 + 6 + 9
+            Output = 20
+        </p>
+     </div>
+     <div class="answer-section">
+        <div class="codeblock">
+           <pre>
+<code>
+import java.util.*;
+class digitSum
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a number");
+        int num=sc.nextInt();
+        int sum=0;
+        while(num!=0)
+        {
+            int d=num%10;
+            sum=sum+d;
+            num=num/10;
+        }
+        System.out.println("The sum of digits is "+sum);
+    }
+}  
+</code>
+           </pre>
+        </div>
+    </div>
+    <div class="output">
+        <pre>
+            <code>
+Codely Prompt ----->java digitSum.java
+Enter a number
+569
+The sum of digits is 20
+            </code>
+        </pre>
+       </div>
+       <div class="output">
+        <pre>
+            <code>
+Codely Prompt ----->java digitSum.java
+Enter a number
+143
+The sum of digits is 8
+            </code>
+        </pre>
+       </div>
+
+       <div class="credits">
+        <h2>Contribution by :-</h2>
+        <div class="name-img">
+            <img src="../images/abhishek.jpg" alt="Abhishek Image">
+            <p><a href="https://twitter.com/AMAbhishekRaj1"> Abhishek Raj</a> </p>
+        </div>
+       </div>
+
+       <footer>
+        <p> <pre> Codely   ||   Second  Release  ||    2023 </pre></p>
+       </footer>
+</body>
+</html>

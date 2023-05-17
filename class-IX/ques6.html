@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Number</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="../class-IX/style.css">
+    <link rel="shortcut icon" href="../images/Favicon.ico.jpg" type="image/x-icon" />
+</head>
+<body>
+    <nav>
+        <div class="logo">
+           Codely
+        </div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+        <i class="fas fa-bars"></i>
+        </label>
+        <ul>
+           <li><a href="../index.html">Home</a></li>
+           <li><a class="active" href="../class-IX.html">Class IX</a></li>
+           <li><a href="../class-X.html">Class X</a></li>
+           <li><a href="../class-XI.html">Class XI</a></li>
+           <li><a href="../about-us.html">About Us</a></li>
+        </ul>
+     </nav>
+
+     <div class="ques-section">
+       <p1> Question 6 :</p1>
+       <p>Write a program to accept a number and check whether it is a special number or not .
+       </p>
+     </div>
+     <div class="explanation">
+        <p>Explanation :</p>
+        <p>A special number is a number such that the sum of the factorial of its digits is 
+            equal to the number itself . <br>
+            Sample Input : 145  <br>
+            Process : for 1 1! = 1 <br>
+            for 4! = 4 * 3 * 2 * 1 <br>
+            for 5! = 5 * 4 * 3 * 2 * 1 <br>
+            Sum of 1! + 4! + 5! = 145 <br>
+            Thus the sum equals the number itself and hence it is a special number .
+        </p>
+     </div>
+     <div class="answer-section">
+        <div class="codeblock">
+           <pre>
+<code>
+import java.util.* ;
+class specialNum
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in) ;
+        System.out.println("Enter a number") ;
+        int num = sc.nextInt() ;
+    
+        int temp = num ;
+        int x ;
+        int factorial = 1;
+        int sum = 0 ;
+        while(temp>0)
+        {
+            x = temp%10 ;
+            for(int i=x;i>0;i--)
+            factorial *= i ;
+            sum += factorial ;
+            factorial = 1 ;
+            temp/=10 ;
+        }
+    
+        if(sum==num)
+        System.out.println("Special Number");    
+
+        else
+        System.out.println("Not a Special Number ") ;
+    }
+}
+</code>
+           </pre>
+        </div>
+    </div>
+    <div class="output">
+        <pre>
+            <code>
+Codely Prompt ----->java specialNum.java
+Enter a number 
+145
+Special Number 
+            </code>
+        </pre>
+       </div>
+
+       <div class="credits">
+        <h2>Contribution by :-</h2>
+        <div class="name-img">
+            <img src="../images/binit.jpg" alt="Binit Image">
+            <p><a href="https://twitter.com/imbinit17">Binit Ranjan Das</a></p>
+        </div>
+       </div>
+
+       <footer>
+        <p> <pre> Codely   ||   Second  Release  ||    2023 </pre></p>
+       </footer>
+</body>
+</html>

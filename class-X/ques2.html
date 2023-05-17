@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peterson Number</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="../class-X/style.css">
+    <link rel="shortcut icon" href="../images/Favicon.ico.jpg" type="image/x-icon" />
+</head>
+<body>
+    <nav>
+        <div class="logo">
+           Codely
+        </div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+        <i class="fas fa-bars"></i>
+        </label>
+        <ul>
+           <li><a href="../index.html">Home</a></li>
+           <li><a href="../class-IX.html">Class IX</a></li>
+           <li><a class="active" href="../class-X.html">Class X</a></li>
+           <li><a href="../class-XI.html">Class XI</a></li>
+           <li><a href="../about-us.html">About Us</a></li>
+        </ul>
+     </nav>
+
+     <div class="ques-section">
+       <p1> Question 2:</p1>
+       <p>Design a class PetersonNum to check whether a number is a Peterson number or not </p>
+     </div>
+     <div class="explanation">
+        <p>Explanation :</p>
+        <p>
+            A number is a Peterson Number if the sum of factorials of each digit is equal to the actual number. <br>
+
+            Example: <br>
+            
+            Given Number: 145 <br>
+            
+            = 1 + (4*3*2*1)+(5*4*3*2*1) <br>
+            = 145 <br>
+            
+            Hence,145 is a Peterson Number. <br>
+        </p>
+     </div>
+     <div class="answer-section">
+        <div class="codeblock">
+           <pre>
+<code>
+import java.util.Scanner ;
+class PetersonNum 
+{
+    private static int num ;
+    PetersonNum(int n)
+    {
+        num = n ;
+    }
+    
+    static int factorial(int n )
+    {
+        int result = 1 ;
+        for(int i=n;i>0;i--)
+        result *= i ;
+        
+        return result ;
+    }
+    
+    void display()
+    {
+        int temp = num ;
+        int newNum = 0 ;
+        while(num!=0)
+        {
+            newNum += factorial(num%10) ;
+            num/= 10 ;
+        }
+
+        if(temp==newNum)
+        System.out.println(temp+" is a Peterson Number !") ;
+
+        else 
+        System.out.println(temp+" is not a Peterson Number ") ;
+    }
+    
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in) ;
+        System.out.println("Enter a number ") ;
+        PetersonNum run = new PetersonNum(sc.nextInt()) ;
+        run.display() ;
+    }
+}         
+</code>
+           </pre>
+        </div>
+    </div>
+    <div class="output">
+        <pre>
+            <code>
+Codely Prompt ----->java PetersonNum.java
+Enter a number
+145
+145 is a Peterson Number !
+            </code>
+        </pre>
+                   </div>
+
+       <div class="credits">
+        <h2>Contribution by :-</h2>
+        <div class="name-img">
+            <img src="../images/binit.jpg" alt="Binit Image">
+            <p><a href="https://twitter.com/imbinit17">Binit Ranjan Das</a></p>
+        </div>
+       </div>
+
+       <footer>
+        <p> <pre> Codely   ||   Second  Release  ||    2023 </pre></p>
+       </footer>
+</body>
+</html>

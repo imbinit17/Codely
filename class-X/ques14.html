@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CI without Formula</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="../class-X/style.css">
+    <link rel="shortcut icon" href="../images/Favicon.ico.jpg" type="image/x-icon" />
+</head>
+<body>
+    <nav>
+        <div class="logo">
+           Codely
+        </div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+        <i class="fas fa-bars"></i>
+        </label>
+        <ul>
+            
+           <li><a href="../index.html">Home</a></li>
+           <li><a href="../class-IX.html">Class IX</a></li>
+           <li><a class="active" href="../class-X.html">Class X</a></li>
+           <li><a href="../class-XI.html">Class XI</a></li>
+           <li><a href="../about-us.html">About Us</a></li>
+        </ul>
+     </nav>
+
+     <div class="ques-section">
+       <p1> Question 14 :</p1>
+       <p>Write a program to compute the Compound Interest to be compounded annually 
+        <br>      but DON'T USE FORMULA</p>
+     </div>
+          <div class="answer-section">
+        <div class="codeblock">
+           <pre>
+<code>
+import java.util.*;
+class compoundInterest
+{
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in) ;
+        System.out.println("Enter the principal amount") ;
+        double principal = sc.nextDouble() ;
+        
+        System.out.println("Enter the rate of interest per annum") ;
+        double rate = sc.nextDouble() ;
+
+        System.out.println("Enter the time period in years") ;
+        int time = sc.nextInt() ;
+
+        compoundInterest run = new compoundInterest() ;
+        
+        double amount = run.getAmount(principal,rate,time) ;
+        double CI = amount - principal ;
+
+        System.out.println("The Compound Interest : "+Math.round(CI)) ;
+        System.out.println("The final Amount : "+Math.round(amount)) ;
+    }
+
+    public double getAmount(double p , double r ,double t) //p->principal ; r->rate ;t->time
+    {
+        double amount = p ; //Compound Interest
+        for(int i=1;i<=t;i++)
+        {
+            amount =  amount + (amount*r*1)/100 ;
+        }
+        return amount ;
+    }
+
+}         
+</code>
+           </pre>
+        </div>
+    </div>
+    <div class="output">
+        <pre>
+            <code>
+Codely Prompt ----->java compoundInterest.java
+Enter the principal amount
+12600
+Enter the rate of interest per annum
+10
+Enter the time period in years
+2
+The Compound Interest : 2646
+The final Amount : 15246
+            </code>
+        </pre>
+                   </div>
+
+       <div class="credits">
+        <h2>Contribution by :-</h2>
+        <div class="name-img">
+            <img src="../images/samar.jpeg" alt="Samar Image">
+            <p><a href="https://twitter.com/SamarKhan_weeb"> Samar Khan</a></p>
+        </div>
+       </div>
+
+       <footer>
+        <p> <pre> Codely   ||   Second  Release  ||    2023 </pre></p>
+       </footer>
+</body>
+</html>

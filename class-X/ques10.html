@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even String</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="../class-X/style.css">
+    <link rel="shortcut icon" href="../images/Favicon.ico.jpg" type="image/x-icon" />
+</head>
+<body>
+    <nav>
+        <div class="logo">
+           Codely
+        </div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+        <i class="fas fa-bars"></i>
+        </label>
+        <ul>
+           <li><a href="../index.html">Home</a></li>
+           <li><a href="../class-IX.html">Class IX</a></li>
+           <li><a class="active" href="../class-X.html">Class X</a></li>
+           <li><a href="../class-XI.html">Class XI</a></li>
+           <li><a href="../about-us.html">About Us</a></li>
+        </ul>
+     </nav>
+
+     <div class="ques-section">
+       <p1> Question 10:</p1>
+        <p>Define a class to accept and store 10 strings into the array and print the strings with even
+            number of characters. <br> 
+            
+            <div class="explanation">
+            Note : even no of CHARACTERS does not mean if length of string is even 
+            It means whether the no of characters(spaces don't count) are even
+        </div>
+           </p>       
+     </div>
+     <div class="answer-section">
+        <div class="codeblock">
+           <pre>
+<code>
+import java.util.*;
+class evenString
+{
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in) ;
+        evenString tool = new evenString() ;
+
+        String arr[] = new String[10] ;
+        System.out.println("Enter 10 sentences") ;
+
+        String newArr[] = new String[10] ;
+        int index = 0 ;
+        for(int j=0;j< 10;j++)
+        {
+            arr[j] = sc.nextLine() ;
+            newArr[j] = tool.eliminateSpaces(arr[j]) ;
+
+            if(newArr[j].length()%2==0)
+            {
+                index*=10 ;
+                index+=j ;
+            }
+        }
+        System.out.println("") ;
+        System.out.println("The following are the even strings") ;
+        while(index!=0)
+        {
+            System.out.println(arr[index%10]) ;
+            index /= 10 ;
+        }
+    }
+
+    public String eliminateSpaces(String str)
+    {
+        String newStr="" ;
+        for(int i=0;i< str.length();i++)
+        {
+            if(str.charAt(i)!=' ')
+            newStr +=str.charAt(i) ;
+        }
+        return newStr ;
+    }
+} 
+</code>
+           </pre>
+        </div>
+    </div>
+    
+    <div class="output">
+        <pre>
+            <code>
+Codely Prompt ----->java evenString.java
+Enter 10 sentences
+Lorem ipsum dolor sit amet, consectetur adipiscing elit
+Curabitur in felis at quam porta accumsan
+Nulla et sem interdum, fermentum sapien a
+porta at eleifend nec, venenatis ac nulla
+Curabitur eu velit accumsan, molestie magna vel
+Pellentesque id erat vitae urna convallis pretium eget quis leo
+Vestibulum accumsan sapien at arcu malesuada placerat
+Sed id magna fermentum
+Praesent cursus id tellus sed rhoncus
+Nunc viverra vulputate dui
+
+The following are the even strings
+Praesent cursus id tellus sed rhoncus
+Pellentesque id erat vitae urna convallis pretium eget quis leo
+            </code>
+        </pre>
+                   </div>
+
+       <div class="credits">
+        <h2>Contribution by :-</h2>
+        <div class="name-img">
+            <img src="../images/binit.jpg" alt="Binit Image">
+            <p><a href="https://twitter.com/imbinit17">Binit Ranjan Das</a></p>
+        </div>
+       </div>
+
+       <footer>
+        <p> <pre> Codely   ||   Second  Release  ||    2023 </pre></p>
+       </footer>
+</body>
+</html>

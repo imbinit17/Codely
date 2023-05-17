@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum of Digits</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="../class-IX/style.css">
+    <link rel="shortcut icon" href="../images/Favicon.ico.jpg" type="image/x-icon" />
+</head>
+<body>
+    <nav>
+        <div class="logo">
+           Codely
+        </div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+        <i class="fas fa-bars"></i>
+        </label>
+        <ul>
+           <li><a href="../index.html">Home</a></li>
+           <li><a class="active" href="../class-IX.html">Class IX</a></li>
+           <li><a href="../class-X.html">Class X</a></li>
+           <li><a href="../class-XI.html">Class XI</a></li>
+           <li><a href="../about-us.html">About Us</a></li>
+        </ul>
+     </nav>
+
+     <div class="ques-section">
+       <p1> Question 5 :</p1>
+       <p>Write a program to print the sum of negative numbers , sum of odd positive numbers and 
+        sum of even positive numbers from a list of numbers entered by user .The list terminates when the 
+        user enters a zero .  <br>
+        Note : Avoid array as out of scope of the ICSE class IX syllabus
+       </p>
+     </div>
+     <div class="explanation">
+        <p>Explanation :</p>
+        <p>Sample Input : <br>
+            2  <br>
+            5  <br>
+            7  <br>
+            -8  <br>
+            -4<br>
+            3  <br>
+            -9 <br>
+            0  <br>
+            <br>
+            Sample Output : <br>
+            The sum of negative numbers is -21 . <br>
+            The sum of odd positive numbers is 15 . <br>
+            The sum of even positive numbers is 2 . <br>
+        </p>
+     </div>
+     <div class="answer-section">
+        <div class="codeblock">
+           <pre>
+<code>
+import java.util.* ;
+class sumOfDigits
+{
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in) ;
+        System.out.println("Start entering the numbers .Press 0 to terminate") ;
+    
+        int num = 1 ;
+        int sumNegative = 0 ;
+        int sumOddPositive = 0 ;
+        int sumEvenPositive = 0 ;
+
+        while(num!=0)
+        {
+            num = sc.nextInt() ;
+            if(num< 0)
+            sumNegative += num ;
+
+            else{
+                if(num%2==0)
+                sumEvenPositive += num ;
+
+                else if(num%2!=0)
+                sumOddPositive += num ;
+            }
+        }
+
+        System.out.println("Sum of Odd Positive nos : "+sumOddPositive) ;
+        System.out.println("Sum of Even Positive nos : "+sumEvenPositive) ;
+        System.out.println("Sum of Negative nos : "+sumNegative) ;
+    }
+}  
+</code>
+           </pre>
+        </div>
+    </div>
+           <div class="output">
+            <pre>
+                <code>
+Codely Prompt ----->java sumOfDigits.java
+Start entering the numbers .Press 0 to terminate
+2
+5
+7
+-8
+-4
+3
+-9
+0
+Sum of Odd Positive nos : 15
+Sum of Even Positive nos : 2
+Sum of negative nos : -21 
+                </code>
+            </pre>
+           </div>
+       <div class="credits">
+        <h2>Contribution by :-</h2>
+        <div class="name-img">
+            <img src="../images/abhishek.jpg" alt="Abhishek Image">
+            <p><a href="https://twitter.com/AMAbhishekRaj1"> Abhishek Raj</a> </p>
+        </div>
+       </div>
+
+       <footer>
+        <p> <pre> Codely   ||   Second  Release  ||    2023 </pre></p>
+       </footer>
+</body>
+</html>

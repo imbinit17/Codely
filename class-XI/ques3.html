@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 3 </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="../class-XI/style.css">
+    <link rel="shortcut icon" href="../images/Favicon.ico.jpg" type="image/x-icon" />
+</head>
+<body>
+    <nav>
+        <div class="logo">
+           Codely
+        </div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+        <i class="fas fa-bars"></i>
+        </label>
+        <ul>
+            
+           <li><a href="../index.html">Home</a></li>
+           <li><a href="../class-IX.html">Class IX</a></li>
+           <li><a  href="../class-X.html">Class X</a></li>
+           <li><a class="active" href="../class-XI.html">Class XI</a></li>
+           <li><a href="../about-us.html">About Us</a></li>
+        </ul>
+     </nav>
+
+     <div class="ques-section">
+       <p1> Question 3 :</p1>
+       <p>Define a class matrix with the following specifications</p>
+     </div>
+     <div class="explanation">
+        <p> <pre>
+            Data Members : 
+            int m,n --> stores dimensions of array
+            arr[][] = array to store the numeric elements
+   
+        Member Methods : 
+            matrix(int r,int c) : constructor to initialise m and n for allocating memory for array
+            void getData() : method to get Values for the array from the user
+            void sort() : method to sort the array in ascending order using a standard sorting technique(row)
+            void show() : method to display array in matrix form
+        
+        Also write main method to implement above functions.
+
+        </pre> 
+        </p>
+     </div>
+     <div class="answer-section">
+        <div class="codeblock">
+           <pre>
+<code>
+import java.util.*;
+public class matrix
+{
+    int m ,n ;
+    int arr[][] ;
+    matrix(int r,int c)
+    {
+        m = r ;
+        n = c ;
+        arr= new int[m][n] ;
+    }
+
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in) ;
+        System.out.println("Rows for the matrix") ;
+        int r = sc.nextInt();
+        System.out.println("Columns for the matrix") ;
+        int c = sc.nextInt() ;
+            
+        matrix run = new matrix(r,c) ;
+        System.out.println() ;
+        System.out.println("Enter "+r*c+" characters .");
+        run.getData() ;
+        run.sort();
+
+        System.out.println() ;
+        System.out.println("The matrix : ") ;
+        run.show() ;
+    }
+        
+    void show ()
+    {
+        for(int x=0;x< m;x++)
+        {
+            for(int y= 0; y< n;y++)
+            System.out.print(arr[x][y]+" ") ;
+            System.out.println() ;
+        }
+    }
+
+    void sort()
+    {
+        int tempArr[] = new int[n] ;
+        for(int a=0;a< m;a++)
+        {
+            for(int b=0;b< n;b++)
+            tempArr[b] = arr[a][b] ;
+                
+            tempArr = bubbleSort(tempArr) ;
+            for(int c=0;c< n;c++)
+            arr[a][c] = tempArr[c] ;
+        }
+    }
+        
+    void getData()
+    {
+        Scanner sc = new Scanner(System.in) ;
+        for(int i=0;i< m;i++)
+        {
+            for(int j=0;j< n;j++)
+            arr[i][j] = sc.nextInt() ;
+        }
+    }
+        
+    public static int[] bubbleSort(int arr[])
+    {
+        int temp ;
+        for(int i=0;i< arr.length ;i++)
+        {
+            for(int j=0;j< arr.length-1;j++)
+            {
+                if(arr[j]>arr[j+1])
+                {
+                    temp = arr[j] ;
+                    arr[j] = arr[j+1] ;
+                    arr[j+1] = temp ;
+                }
+            }
+        }
+        return arr ;
+    }
+}
+</code>
+           </pre>
+        </div>
+    </div>
+<div class="output">
+    <br>
+    <pre>
+        <code>
+Codely Prompt ----->java matrix.java
+Rows for the matrix
+4
+Columns for the matrix
+3
+
+Enter 12 characters
+1
+5
+6
+-5
+0
+-1
+45
+69
+75
+-1 
+-12
+5
+
+The matrix : 
+1  5  6
+-5 -1 0
+45 69 75 
+-12 -1 5
+        </code>
+    </pre>
+</div>
+
+       <div class="credits">
+        <h2>Contribution by :-</h2>
+        <div class="name-img">
+            <img src="../images/binit.jpg" alt="Binit Image">
+            <p><a href="https://twitter.com/imbinit17"> Binit Ranjan</a> </p>
+        </div>
+       </div>
+
+       <footer>
+        <p> <pre> Codely   ||   Second  Release  ||    2023 </pre></p>
+       </footer>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Number</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="../class-X/style.css">
+    <link rel="shortcut icon" href="../images/Favicon.ico.jpg" type="image/x-icon" />
+</head>
+<body>
+    <nav>
+        <div class="logo">
+           Codely
+        </div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+        <i class="fas fa-bars"></i>
+        </label>
+        <ul>
+           <li><a href="../index.html">Home</a></li>
+           <li><a href="../class-IX.html">Class IX</a></li>
+           <li><a class="active" href="../class-X.html">Class X</a></li>
+           <li><a href="../class-XI.html">Class XI</a></li>
+           <li><a href="../about-us.html">About Us</a></li>
+        </ul>
+     </nav>
+
+     <div class="ques-section">
+       <p1> Question 3:</p1>
+       <p>Write a program to accept a number and check whether it is a tech number or not . </p>
+     </div>
+     <div class="explanation">
+        <p>Explanation :</p>
+        <p>
+            A number is called a tech number if the given number has an even number of digits and the
+             number can be divided exactly into two parts from the middle. After equally dividing the 
+             number, sum up the numbers and find the square of the sum.
+        </p>
+     </div>
+     <div class="answer-section">
+        <div class="codeblock">
+           <pre>
+<code>
+import java.util.Scanner;
+class TechNum
+{
+    private static int num ;
+    
+    static int digitCheck()
+    {
+        int n = num ;
+        int digitCount = 0 ;
+        while(n>0)
+        {
+            n/= 10 ;
+            digitCount ++ ;
+        }
+        return digitCount ;
+    }
+    
+    static void input()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a number") ;
+        num = sc.nextInt() ;
+    }
+    
+    static void display()
+    {
+        int digits = digitCheck() ;
+        if(digits%2==0)
+        {
+            int temp = num ; 
+            int divisor = (int)Math.pow(10,digits/2) ;
+            int firstHalf = temp%divisor ;
+            int secondHalf =  temp/divisor ;
+            int sum = firstHalf + secondHalf ;
+
+            if((sum*sum)==num)
+            System.out.println(num+" is a Tech Number") ;
+            
+            else 
+            System.out.println(num+" is not a Tech Number") ;
+        }
+        else
+        System.out.println("Number does not have even number of digits") ;
+    }
+    
+    public static void main(String args[])
+    {
+        input() ;
+        display() ;
+    }
+}         
+</code>
+           </pre>
+        </div>
+    </div>
+    <div class="output">
+        <pre>
+            <code>
+Codely Prompt ----->java TechNum.java
+Enter a number
+2025
+2025 is a Tech Number
+            </code>
+        </pre>
+                   </div>
+
+       <div class="credits">
+        <h2>Contribution by :-</h2>
+        <div class="name-img">
+            <img src="../images/binit.jpg" alt="Binit Image">
+            <p><a href="https://twitter.com/imbinit17">Binit Ranjan Das</a></p>
+        </div>
+       </div>
+
+       <footer>
+        <p> <pre> Codely   ||   Second  Release  ||    2023 </pre></p>
+       </footer>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordWise</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="../class-X/style.css">
+    <link rel="shortcut icon" href="../images/Favicon.ico.jpg" type="image/x-icon" />
+</head>
+<body>
+    <nav>
+        <div class="logo">
+           Codely
+        </div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+        <i class="fas fa-bars"></i>
+        </label>
+        <ul>
+           <li><a href="../index.html">Home</a></li>
+           <li><a href="../class-IX.html">Class IX</a></li>
+           <li><a class="active" href="../class-X.html">Class X</a></li>
+           <li><a href="../class-XI.html">Class XI</a></li>
+           <li><a href="../about-us.html">About Us</a></li>
+        </ul>
+     </nav>
+
+     <div class="ques-section">
+       <p1> Question 6:</p1>
+       <p>Design a class WordWise to separate words from a sentence and find the
+         frequency of the vowels in each word. 
+        <br>
+        <!-- Define the class WordWise giving details of the constructor(), void readsent(), int freq vowel(String) and void arrange(). 
+        Define the main() function to create an object and call the functions accordingly to enable the task. -->
+        </p>
+     </div>
+     <div class="answer-section">
+        <div class="codeblock">
+           <pre>
+<code>
+import java.util.*;
+public class WordWise
+{
+    private String str ;
+    
+    WordWise()
+    {
+        str = " ";
+    }
+    
+    void readsent()
+    {
+        Scanner sc = new Scanner (System.in) ;
+        System.out.println("Enter sentence !") ;
+        str += sc.nextLine() + " ";
+    }
+    
+    int freq_vowel(String w)
+    {
+        int count= 0 ;
+        for(int i=0;i< w.length();i++)
+        {
+            if(w.charAt(i)=='a'||
+            w.charAt(i)=='e'||
+            w.charAt(i)=='i'||
+            w.charAt(i)=='o'||
+            w.charAt(i)=='u'||
+            w.charAt(i)=='A'||
+            w.charAt(i)=='E'||
+            w.charAt(i)=='I'||
+            w.charAt(i)=='O'||
+            w.charAt(i)=='U'
+            )
+            {
+            count++ ;
+            }
+        }
+        return count ;
+    }
+    
+    void arrange()
+    {
+        WordWise obj = new WordWise () ;
+        String tempString = "" ;
+        for(int m=0;m< str.length()-1;m++)
+        {
+            if(str.charAt(m)==' ')
+            {
+                int x = m+1 ;
+                while(str.charAt(x)!=' ')
+                {
+                    tempString +=str.charAt(x) ;
+                    x++ ;
+                }
+            System.out.println(tempString) ;
+            System.out.println("No of 
+            Vowels present :"+obj.freq_vowel(tempString)) ;
+            tempString = "" ;
+        }
+    }
+    
+    }
+    public static void main(String args[] ) 
+    {
+    WordWise run = new WordWise () ;
+    run.readsent() ;
+    run.arrange() ;
+    }
+    }       
+</code>
+           </pre>
+        </div>
+    </div>
+    <div class="output">
+        <pre>
+            <code>
+Codely Prompt ----->java WordWise.java
+Enter sentence !
+Virat Kohli is the greatest cricketer of all time
+Virat
+No of Vowels present :2
+Kohli
+No of Vowels present :2
+is
+No of Vowels present :1
+the
+No of Vowels present :1
+greatest
+No of Vowels present :3
+cricketer
+No of Vowels present :3
+of
+No of Vowels present :1
+all
+No of Vowels present :1
+time
+No of Vowels present :2
+            </code>
+        </pre>
+                   </div>
+
+       <div class="credits">
+        <h2>Contribution by :-</h2>
+        <div class="name-img">
+            <img src="../images/binit.jpg" alt="Binit Image">
+            <p><a href="https://twitter.com/imbinit17">Binit Ranjan Das</a></p>
+        </div>
+       </div>
+
+       <footer>
+        <p> <pre> Codely   ||   Second  Release  ||    2023 </pre></p>
+       </footer>
+</body>
+</html>

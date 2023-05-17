@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Palindrome Number</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="../class-X/style.css">
+    <link rel="shortcut icon" href="../images/Favicon.ico.jpg" type="image/x-icon" />
+</head>
+<body>
+    <nav>
+        <div class="logo">
+           Codely
+        </div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+        <i class="fas fa-bars"></i>
+        </label>
+        <ul>
+           <li><a href="../index.html">Home</a></li>
+           <li><a href="../class-IX.html">Class IX</a></li>
+           <li><a class="active" href="../class-X.html">Class X</a></li>
+           <li><a href="../class-XI.html">Class XI</a></li>
+           <li><a href="../about-us.html">About Us</a></li>
+        </ul>
+     </nav>
+
+     <div class="ques-section">
+       <p1> Question 5:</p1>
+       <p>Design a class PrimePalinGen to generate prime palindrome numbers. <br>
+         [ A number is said to be prime palindrome if the number is a prime as well as a palindrome number] </p>
+     </div>
+     <div class="explanation">
+        <p>Explanation :</p>
+        <p><pre>
+        Specify the class PrimePalinGen giving details of the constructor(),int isPrime(int), int isPalin(int) and void generate().
+        Define a main() function to create an object and call the functions accordingly to enable the task.
+            </pre></p>
+     </div>
+     <div class="answer-section">
+        <div class="codeblock">
+           <pre>
+<code>
+import java.util.*; 
+public class PrimePalinGen
+{
+    int start , end ;
+    PrimePalinGen(int a ,int b)
+    {
+        start = a ;
+        end = b ;
+    }
+    
+    int isPrime(int i)
+    {
+        for(int j=2;j< i;j++)
+        {
+            if(i%j==0)
+            return 0 ;
+        }
+        return 1 ;
+    }
+    
+    int isPalin(int i)
+    {
+        int num = i ;
+        int newNum = 0 ;
+        while(i!=0)
+        {
+            newNum = newNum + (i%10) ;
+            newNum *= 10 ;
+            i = i/10 ;
+        }
+        
+        if((newNum/10)==num)
+        return 1 ;
+        
+        
+        else 
+        return 0 ;
+    }
+    
+    void generate()
+    {
+        for(int i=start;i<=end;i++)
+        {
+            if(isPrime(i)==1)
+            {
+                if(isPalin(i)==1)
+                System.out.println(i) ;
+            }
+        }
+    }
+    
+    public static void main(String  args[])
+    {
+        Scanner sc = new Scanner(System.in) ;
+        System.out.println("Enter start range");
+        int start = sc.nextInt() ;
+        System.out.println("Enter end range") ;
+        int end = sc.nextInt() ;
+        
+        PrimePalinGen run = new PrimePalinGen(start,end) ;
+        System.out.println("Prime Palindrome Numbers in the range : ") ;
+        run.generate() ;
+    }
+}        
+</code>
+           </pre>
+        </div>
+    </div>
+    <div class="output">
+        <pre>
+            <code>
+Codely Prompt ----->java PrimePalinGen.java
+Enter start range
+9
+Enter end range
+200
+Prime Palindrome Numbers in the range :
+11
+101
+131
+151
+181
+191
+</code>
+        </pre>
+                   </div>
+
+       <div class="credits">
+        <h2>Contribution by :-</h2>
+        <div class="name-img">
+            <img src="../images/binit.jpg" alt="Binit Image">
+            <p><a href="https://twitter.com/imbinit17">Binit Ranjan Das</a></p>
+        </div>
+       </div>
+
+       <footer>
+        <p> <pre> Codely   ||   Second  Release  ||    2023 </pre></p>
+       </footer>
+</body>
+</html>

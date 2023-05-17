@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permutative Rank Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="../class-XI/style.css">
+    <link rel="shortcut icon" href="../images/Favicon.ico.jpg" type="image/x-icon" />
+</head>
+<body>
+    <nav>
+        <div class="logo">
+           Codely
+        </div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+        <i class="fas fa-bars"></i>
+        </label>
+        <ul>
+            
+           <li><a href="../index.html">Home</a></li>
+           <li><a href="../class-IX.html">Class IX</a></li>
+           <li><a  href="../class-X.html">Class X</a></li>
+           <li><a class="active" href="../class-XI.html">Class XI</a></li>
+           <li><a href="../about-us.html">About Us</a></li>
+        </ul>
+     </nav>
+
+     <div class="ques-section">
+       <p1> Question 2 :</p1>
+       <p>Write a program in Java to calculate the permutative rank of a word.</p>
+     </div>
+     <div class="explanation">
+        <p>Explanation :</p>
+        <p><pre>
+        Sample Input              Sample Output
+            CAB                                     5
+            DELHI                                   5
+            RANK                                  20
+            ALLAHABAD                   3891
+        </pre>
+        </p>
+     </div>
+     <div class="answer-section">
+        <div class="codeblock">
+           <pre>
+<code>
+import java.util.*;
+class permutativeRankCalculator
+{
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in) ;
+        System.out.println("Enter a word") ;
+        String word = sc.next().toUpperCase() ;
+    
+        permutativeRankCalculator run = new permutativeRankCalculator() ;
+        
+        String arranged = run.arrangeAlphabetically(word) ;
+    
+        int rank = run.rankCalculator(word, arranged) ;
+        System.out.println("The rank of the word "+word+" is "+rank) ;
+    }
+    
+    public int rankCalculator(String word,String arranged)
+    {
+        int len = word.length() ;
+        int index ; //formula variable
+        char ch ; 
+        int remaining ,repitition ; //formula variable
+        int rank = 0 ; //this will be returned
+        for(int f=0;f< len;f++)
+        {
+            ch = word.charAt(f) ;
+            index = arranged.indexOf(ch) ;
+            repitition = repititionCheck(arranged) ; 
+            arranged = eliminateCharacter(arranged,ch) ;
+            remaining = factorial(len-(f+1)) ;
+                
+            rank += index * (remaining)/repitition ;
+        }
+        //At last when 0 is returned ; but for successful completion +1 rank is rewarded ....
+        return (rank+1) ;
+    }
+    
+    public String arrangeAlphabetically(String str)
+    {
+        Character arr[] = new Character[str.length()] ;
+        for(int b=0;b< arr.length;b++)
+        arr[b] = str.charAt(b) ;
+        
+        char ch ;
+        for(int c=0;c< arr.length;c++)
+       { 
+        for(int d=0;d< arr.length-1;d++)
+        {
+           if((int)arr[d]> (int)arr[d+1])
+            {
+            ch = arr[d] ;
+                arr[d] = arr[d+1] ;
+                arr[d+1] = ch ;
+            }
+        }
+        }
+        String resultStr = "" ;
+        for(int e=0;e< arr.length;e++)
+        resultStr += arr[e] ;
+            
+        return resultStr ;
+    }
+    
+    public static String eliminateCharacter(String arranged ,char ch)
+    {
+        String newStr = "" ;
+        int flag = 0 ; //to keep check only 1 character 'ch' is eliminated (and not multiple 'ch' are eliminated)
+        for(int g=0;g< arranged.length();g++)
+        {
+            if(arranged.charAt(g)==ch && flag==0)
+            {
+                flag++ ;
+            }
+            else
+            newStr += arranged.charAt(g) ;
+        }
+        return newStr ;
+    }
+    
+    public static int factorial(int n)
+   {
+        int product = 1 ;
+        for(int a=n;a>0;a--)
+        product *= a ;
+        return product ;
+    }
+    
+    // NOTE- This function calls various static methods ...thus important one
+    public static int repititionCheck(String arranged)
+    {
+        Character arr[] = distributeCharacters(arranged) ;
+            
+        char ch ;
+        int result = 1 ;
+        int temp ;
+        for(int k=0;k< arr.length;k++)
+        {
+            temp = 0 ;
+            ch = arr[k] ;
+            for(int l=0;l< arranged.length();l++)
+            {
+                if(ch==arranged.charAt(l))
+                temp++ ;
+            }
+            result *= factorial(temp) ;
+        }
+        return result ;
+    }
+    
+    public static Character[] distributeCharacters(String arranged)
+    {
+        Character arr[] = new Character[arranged.length()] ;
+        char ch ;
+        int arrIndex = 0 ;
+       for(int h=0;h< arranged.length();h++)
+        {
+            ch = arranged.charAt(h) ;
+            if(doesExist(arr,ch)==false)
+            {
+                arr[arrIndex] = ch ;
+                arrIndex++ ;
+            }
+        }
+        Character finalArr[] = new Character[arrIndex] ;
+        for(int i=0;i< arrIndex;i++)
+        finalArr[i] = arr[i] ;
+    
+        return finalArr ;
+    }
+    
+    public static boolean doesExist(Character arr[],char ch)
+    {
+        boolean flag = false ;
+        for(int j=0;j< arr.length;j++)
+        {
+            if(arr[j]!=null && arr[j]==ch)
+            flag = true ;
+        }
+        return flag ;
+    }
+}
+</code>
+           </pre>
+        </div>
+    </div>
+<div class="output">
+    <br>
+    <pre>
+        <code>
+Codely Prompt ----->java permutativeRankCalculator.java
+Enter a word
+CAB
+The rank of the word CAB is 5
+        </code>
+    </pre>
+</div>
+<div class = "output">
+    <pre><code>
+Codely Prompt ----->java permutativeRankCalculator.java
+Enter a word
+DELHI
+The rank of the word CAB is 5
+    </code></pre>
+           </div>
+           <div class = "output">
+            <pre><code>
+Codely Prompt ----->java permutativeRankCalculator.java
+Enter a word
+RANK
+The rank of the word CAB is 20
+            </code></pre>
+        </div>
+            <div class = "output">
+                <pre><code>
+Codely Prompt ----->java permutativeRankCalculator.java
+Enter a word
+ALLAHABAD
+The rank of the word CAB is 3891
+                </code></pre>
+                       </div>
+                   </div>
+           <div class="output">
+            <img src="../class-XI/img/output/flowchart.jpeg" alt="Flowchart">
+           </div>
+
+       <div class="credits">
+        <h2>Contribution by :-</h2>
+        <div class="name-img">
+            <img src="../images/binit.jpg" alt="Binit Image">
+            <p><a href="https://twitter.com/imbinit17">Binit Ranjan</a> </p>
+        </div>
+       </div>
+
+       <footer>
+        <p> <pre> Codely   ||   Second  Release  ||    2023 </pre></p>
+       </footer>
+</body>
+</html>
